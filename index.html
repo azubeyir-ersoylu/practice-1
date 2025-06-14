@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buğday Problemi</title>
+    <style>
+        table { border-collapse: collapse; margin-top: 20px; }
+        td, th { border: 1px solid #ccc; padding: 6px 12px; text-align: right; }
+    </style>
 </head>
 <body>
-    <input type="text" name="" id="" placeholder="please enter your name">
+    <h2>Satranç Tahtası Buğday Problemi</h2>
+    <button onclick="showWheat()">Hesapla</button>
+    <div id="result"></div>
+
+    <script>
+        function showWheat() {
+            let html = '<table><tr><th>Kare</th><th>Buğday Tanesi</th></tr>';
+            let grain = 1n;
+            let total = 0n;
+            for (let i = 1; i <= 64; i++) {
+                html += `<tr><td>${i}</td><td>${grain.toLocaleString('tr-TR')}</td></tr>`;
+                total += grain;
+                grain *= 2n;
+            }
+            html += `<tr><th>Toplam</th><th>${total.toLocaleString('tr-TR')}</th></tr>`;
+            html += '</table>';
+            document.getElementById('result').innerHTML = html;
+        }
+    </script>
 </body>
 </html>
